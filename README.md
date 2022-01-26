@@ -76,3 +76,14 @@ Not tested but sopposedly supported by easy-graph:
 - https://www.rw.cdl.uni-saarland.de/people/sander/private/html/gsvcg1.html
 - https://www.absint.com/aisee/
 ~~~
+
+Develpoment
+-----------
+
+Pull requests welcome. Some notes for future reference:
+```bash
+pip3 install .                              # install directly
+python3 setup.py sdist bdist_wheel          # package for release
+twine upload --repository testpypi dist/*   # upload to test.pypi.org
+twine upload dist/*                         # publish to pypi
+```

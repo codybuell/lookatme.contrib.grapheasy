@@ -2,23 +2,18 @@
 Setup for lookatme.contrib.grapheasy
 """
 
-import os
-
+import pathlib
 from setuptools import setup, find_namespace_packages
 
-req_path = os.path.join(os.path.dirname(__file__), "requirements.txt")
-with open(req_path, "r") as f:
-    required = f.read().splitlines()
-
-readme_path = os.path.join(os.path.dirname(__file__), "README.md")
-with open(readme_path, "r") as f:
-    readme = f.read()
+cwd = pathlib.Path(__file__).parent
+readme = (cwd / "README.md").read_text()
+required = (cwd / "requirements.txt").read_text().splitlines()
 
 setup(
     name="lookatme.contrib.grapheasy",
-    version="0.0.1",
-    description="Adds a grapheasy code block type",
-    lond_description=readme,
+    version="1.0.0",
+    description="Plugin for lookatme providing support for graph-easy.",
+    long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/codybuell/lookatme.contrib.grapheasy",
     author="Cody Buell",
@@ -37,5 +32,4 @@ setup(
     python_requires=">=3.9",
     install_requires=required,
     packages=find_namespace_packages(include=["lookatme.*"]),
-    install_requires=[],
 )
